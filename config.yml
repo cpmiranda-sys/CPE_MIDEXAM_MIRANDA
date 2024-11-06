@@ -1,0 +1,24 @@
+---
+- name: 2.2 install and configure Elastic Stack in separate hosts
+  hosts: all
+  become: true
+  roles:
+  - ElasticStack
+
+- name: Install nagios in one host
+  hosts: Ubuntu
+  become: true
+  roles:
+  - Nagios
+
+- name: 2.3 install grafana, prometheus and influxdb
+  hosts: all
+  become: true
+  roles:
+  - GRAFANA-INFLUX-PROMETHEUS
+
+- name: install Lamp stack
+  hosts: all 
+  become: true
+  roles:
+  - lampstack
